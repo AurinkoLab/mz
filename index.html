@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио Марии Звегельской</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fdf2f8;
+            overflow-x: hidden;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ec4899'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E"), auto;
+        }
+        .fancy-title {
+            font-family: 'Dancing Script', cursive;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #fbcfe8 0%, #ddd6fe 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        .card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.2);
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .spin {
+            animation: spin 10s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .bounce {
+            animation: bounce 2s ease infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .piano-keys {
+            display: flex;
+            height: 120px;
+            width: 210px;
+            margin: 0 auto;
+        }
+        .key-white {
+            width: 30px;
+            background-color: white;
+            border: 1px solid #ccc;
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .key-white:hover {
+            background-color: #f9a8d4;
+        }
+        .key-white:active {
+            background-color: #ec4899;
+        }
+        .key-black {
+            width: 20px;
+            background-color: black;
+            height: 60%;
+            position: absolute;
+            right: -10px;
+            z-index: 2;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .key-black:hover {
+            background-color: #4c1d95;
+        }
+        .key-black:active {
+            background-color: #6d28d9;
+        }
+        .solar-cart {
+            position: relative;
+            width: 180px;
+            height: 100px;
+            margin: 0 auto;
+        }
+        .cart-body {
+            width: 120px;
+            height: 50px;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            position: absolute;
+            bottom: 25px;
+            left: 30px;
+            border-radius: 10px 10px 0 0;
+            transition: all 0.3s;
+        }
+        .wheel {
+            width: 25px;
+            height: 25px;
+            background-color: #1f2937;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 10px;
+            transition: all 0.3s;
+        }
+        .wheel-left {
+            left: 40px;
+        }
+        .wheel-right {
+            right: 40px;
+        }
+        .solar-panel {
+            width: 80px;
+            height: 30px;
+            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+            position: absolute;
+            top: 0;
+            left: 50px;
+            border: 2px solid #64748b;
+            transition: all 0.3s;
+        }
+        .solar-cart:hover .cart-body {
+            background: linear-gradient(135deg, #93c5fd 0%, #60a5fa 100%);
+            transform: translateY(-5px);
+        }
+        .solar-cart:hover .wheel {
+            transform: rotate(360deg);
+        }
+        .solar-cart:hover .solar-panel {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .parkour-figure {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .figure {
+            position: absolute;
+            width: 20px;
+            height: 40px;
+            background-color: #4b5563;
+            border-radius: 5px;
+            left: 50px;
+            top: 40px;
+            transform: rotate(-30deg);
+            transition: all 0.3s;
+        }
+        .head {
+            width: 15px;
+            height: 15px;
+            background-color: #4b5563;
+            border-radius: 50%;
+            position: absolute;
+            left: 52px;
+            top: 30px;
+            transition: all 0.3s;
+        }
+        .arm {
+            width: 25px;
+            height: 8px;
+            background-color: #4b5563;
+            position: absolute;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .arm-left {
+            transform: rotate(45deg);
+            left: 35px;
+            top: 45px;
+        }
+        .arm-right {
+            transform: rotate(-45deg);
+            left: 60px;
+            top: 45px;
+        }
+        .leg {
+            width: 30px;
+            height: 8px;
+            background-color: #4b5563;
+            position: absolute;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .leg-left {
+            transform: rotate(60deg);
+            left: 40px;
+            top: 75px;
+        }
+        .leg-right {
+            transform: rotate(-30deg);
+            left: 55px;
+            top: 75px;
+        }
+        .obstacle {
+            width: 80px;
+            height: 20px;
+            background-color: #6b7280;
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            border-radius: 5px;
+        }
+        .parkour-figure:hover .figure {
+            transform: rotate(-10deg) translateY(-15px);
+        }
+        .parkour-figure:hover .head {
+            transform: translateY(-15px);
+        }
+        .parkour-figure:hover .arm-left {
+            transform: rotate(20deg) translateY(-15px);
+        }
+        .parkour-figure:hover .arm-right {
+            transform: rotate(-70deg) translateY(-15px);
+        }
+        .parkour-figure:hover .leg-left {
+            transform: rotate(80deg) translateY(-15px);
+        }
+        .parkour-figure:hover .leg-right {
+            transform: rotate(-50deg) translateY(-15px);
+        }
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: rise 8s linear infinite;
+        }
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-800px) scale(1);
+                opacity: 0;
+            }
+        }
+        .sparkle {
+            position: absolute;
+            background: #fff;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: twinkle 2s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        .btn-fancy {
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            color: white;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+        }
+        .btn-fancy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6);
+        }
+        .btn-fancy:active {
+            transform: translateY(1px);
+        }
+        .btn-fancy::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+        .btn-fancy:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ec4899, #8b5cf6);
+            border-radius: 2px;
+        }
+        .emoji-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            display: none;
+        }
+        .emoji {
+            position: absolute;
+            font-size: 24px;
+            user-select: none;
+            will-change: transform;
+            z-index: 9999;
+            animation: emoji-fall 3s linear;
+        }
+        @keyframes emoji-fall {
+            0% {
+                opacity: 1;
+                transform: translateY(-20vh) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        .star-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        .cursor-trail {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.7;
+            mix-blend-mode: screen;
+        }
+    </style>
+</head>
+<body>
+    <div id="cursor-container"></div>
+    <div class="emoji-rain" id="emoji-rain"></div>
+    
+    <!-- Шапка -->
+    <header class="hero-bg text-pink-800 py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div class="star-container" id="star-container"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="mb-6 floating">
+                <svg class="w-20 h-20 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#ec4899"/>
+                </svg>
+            </div>
+            <h1 class="fancy-title text-5xl sm:text-6xl font-bold mb-4 text-pink-600">Мария Звегельская</h1>
+            <p class="text-xl sm:text-2xl mb-6 font-medium">Ученица 6 класса, музыкант, программист и спортсменка</p>
+            <p class="text-lg opacity-80">Хельсинки, Финляндия</p>
+            
+            <div class="mt-10">
+                <button id="magic-button" class="btn-fancy">
+                    ✨ Нажми на волшебную кнопку! ✨
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Обо мне -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-pink-50 to-purple-50 relative">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-pink-600 section-title">Обо мне</h2>
+            <div class="bg-white bg-opacity-70 backdrop-blur-md rounded-3xl p-8 shadow-lg border-2 border-pink-100">
+                <p class="text-lg text-gray-700 mb-8 text-center">
+                    Привет! Меня зовут Мария, мне 12 лет, и я учусь в 6 классе в Хельсинки. 
+                    У меня много разных увлечений: от музыки и программирования до инженерии и паркура.
+                    Я люблю узнавать новое и развиваться в разных направлениях!
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <span class="inline-block bg-pink-100 text-pink-800 px-4 py-2 rounded-full font-medium">12 лет</span>
+                    <span class="inline-block bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-medium">6 класс</span>
+                    <span class="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">Хельсинки</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Мои увлечения -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-50 to-pink-50 relative">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-pink-600 section-title">Мои увлечения</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Музыка -->
+                <div class="card p-6 hover-trigger">
+                    <div class="text-center mb-4">
+                        <span class="text-4xl">🎹</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-pink-600 text-center">Музыка</h3>
+                    <div class="piano-keys mb-4" id="piano">
+                        <div class="key-white" data-note="C"></div>
+                        <div class="key-white relative" data-note="D">
+                            <div class="key-black" data-note="C#"></div>
+                        </div>
+                        <div class="key-white relative" data-note="E">
+                            <div class="key-black" data-note="D#"></div>
+                        </div>
+                        <div class="key-white" data-note="F"></div>
+                        <div class="key-white relative" data-note="G">
+                            <div class="key-black" data-note="F#"></div>
+                        </div>
+                        <div class="key-white relative" data-note="A">
+                            <div class="key-black" data-note="G#"></div>
+                        </div>
+                        <div class="key-white relative" data-note="B">
+                            <div class="key-black" data-note="A#"></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-center">
+                        Я люблю играть на фортепиано. Музыка помогает мне выражать свои эмоции и расслабляться после школы.
+                    </p>
+                </div>
+
+                <!-- Программирование и инженерия -->
+                <div class="card p-6 hover-trigger">
+                    <div class="text-center mb-4">
+                        <span class="text-4xl">💻</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600 text-center">Инженерия и программирование</h3>
+                    <div class="solar-cart mb-4" id="solar-cart">
+                        <div class="solar-panel"></div>
+                        <div class="cart-body"></div>
+                        <div class="wheel wheel-left"></div>
+                        <div class="wheel wheel-right"></div>
+                    </div>
+                    <p class="text-gray-600 text-center">
+                        Я увлекаюсь программированием и инженерией. Дважды собирала солнечный электрический картинг своими руками!
+                    </p>
+                </div>
+
+                <!-- Паркур -->
+                <div class="card p-6 hover-trigger">
+                    <div class="text-center mb-4">
+                        <span class="text-4xl">🏃‍♀️</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-green-600 text-center">Паркур</h3>
+                    <div class="parkour-figure mb-4" id="parkour">
+                        <div class="obstacle"></div>
+                        <div class="figure"></div>
+                        <div class="head"></div>
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+                        <div class="leg leg-left"></div>
+                        <div class="leg leg-right"></div>
+                    </div>
+                    <p class="text-gray-600 text-center">
+                        Паркур учит меня преодолевать препятствия не только физически, но и в жизни. Это развивает координацию и смелость.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Моя школа -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-pink-50 to-purple-50 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12 text-pink-600 section-title">Моя учёба</h2>
+            <div class="card p-8 hover-trigger">
+                <div class="text-center mb-6">
+                    <span class="text-5xl bounce inline-block">📚</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-4 text-purple-700">Школа в Хельсинки</h3>
+                <p class="text-gray-600 mb-6">
+                    Я учусь в 6 классе и стараюсь получать хорошие оценки по всем предметам.
+                    Особенно мне нравятся математика и естественные науки.
+                </p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="inline-block bg-pink-100 text-pink-800 px-4 py-2 rounded-full font-medium">Математика</span>
+                    <span class="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">Физика</span>
+                    <span class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium">Биология</span>
+                    <span class="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-medium">Информатика</span>
+                    <span class="inline-block bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-medium">Музыка</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея моих интересов -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-50 to-pink-50 relative">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-pink-600 section-title">Мои интересы</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="bg-gradient-to-br from-pink-300 to-pink-500 rounded-2xl p-6 text-white text-center aspect-square flex flex-col items-center justify-center transform transition-all hover:scale-105 hover:rotate-2">
+                    <span class="text-4xl mb-3">🎵</span>
+                    <p class="font-medium">Классическая музыка</p>
+                </div>
+                <div class="bg-gradient-to-br from-purple-300 to-purple-500 rounded-2xl p-6 text-white text-center aspect-square flex flex-col items-center justify-center transform transition-all hover:scale-105 hover:rotate-2">
+                    <span class="text-4xl mb-3">💻</span>
+                    <p class="font-medium">Программирование</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-300 to-blue-500 rounded-2xl p-6 text-white text-center aspect-square flex flex-col items-center justify-center transform transition-all hover:scale-105 hover:rotate-2">
+                    <span class="text-4xl mb-3">🔋</span>
+                    <p class="font-medium">Солнечная энергия</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-300 to-green-500 rounded-2xl p-6 text-white text-center aspect-square flex flex-col items-center justify-center transform transition-all hover:scale-105 hover:rotate-2">
+                    <span class="text-4xl mb-3">🏃‍♀️</span>
+                    <p class="font-medium">Паркур</p>
+                </div>
+                <div class="bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-2xl p-6 text-white text-center aspect-square flex flex-col items-center justify-center transform transition-all hover:scale-105 hover:rotate-2">
+                    <span class="text-4xl mb-3">🧪</span>
+                    <p class="font-medium">Наука</p>
+                </div>
+                <div class="bg-gradient-to-br from-red-300 to-red-500 rounded-2xl p-6 text-white text-center aspect-square flex flex-col items-center justify-center transform transition-all hover:scale-105 hover:rotate-2">
+                    <span class="text-4xl mb-3">🎨</span>
+                    <p class="font-medium">Творчество</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-pink-50 to-purple-50 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12 text-pink-600 section-title">Связаться со мной</h2>
+            <div class="card p-8 hover-trigger">
+                <div class="text-center mb-6">
+                    <span class="text-5xl floating inline-block">💌</span>
+                </div>
+                <p class="text-gray-600 mb-8">
+                    Если вы хотите узнать больше о моих проектах или у вас есть интересные идеи для сотрудничества, 
+                    не стесняйтесь связаться со мной!
+                </p>
+                <button id="contact-button" class="btn-fancy">
+                    Написать сообщение
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="bg-gradient-to-r from-pink-500 to-purple-500 text-white py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="mb-4 font-medium">© 2023 Мария Звегельская | Хельсинки, Финляндия</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="hover:text-pink-200 transition duration-300 transform hover:scale-110">Instagram</a>
+                <a href="#" class="hover:text-pink-200 transition duration-300 transform hover:scale-110">GitHub</a>
+                <a href="#" class="hover:text-pink-200 transition duration-300 transform hover:scale-110">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Создаем звездное небо
+        function createStars() {
+            const container = document.getElementById('star-container');
+            const starCount = 100;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                container.appendChild(star);
+            }
+        }
+        
+        // Создаем эффект следа за курсором
+        function createCursorTrail() {
+            const cursorContainer = document.getElementById('cursor-container');
+            const trailCount = 20;
+            const trails = [];
+            
+            for (let i = 0; i < trailCount; i++) {
+                const trail = document.createElement('div');
+                trail.classList.add('cursor-trail');
+                trail.style.width = `${10 - i * 0.4}px`;
+                trail.style.height = `${10 - i * 0.4}px`;
+                trail.style.opacity = `${1 - i * 0.05}`;
+                cursorContainer.appendChild(trail);
+                trails.push(trail);
+            }
+            
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            function updateTrails() {
+                trails.forEach((trail, index) => {
+                    setTimeout(() => {
+                        trail.style.left = `${mouseX}px`;
+                        trail.style.top = `${mouseY}px`;
+                    }, index * 40);
+                });
+                
+                requestAnimationFrame(updateTrails);
+            }
+            
+            updateTrails();
+        }
+        
+        // Создаем эффект дождя из эмодзи
+        function createEmojiRain() {
+            const emojiRainContainer = document.getElementById('emoji-rain');
+            const emojis = ['🎵', '💻', '🏃‍♀️', '🎹', '🔋', '📚', '✨', '💖', '🌈', '🎨'];
+            
+            function startEmojiRain() {
+                emojiRainContainer.style.display = 'block';
+                
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const emoji = document.createElement('div');
+                        emoji.classList.add('emoji');
+                        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                        emoji.style.left = `${Math.random() * 100}%`;
+                        emoji.style.fontSize = `${Math.random() * 20 + 15}px`;
+                        emoji.style.animationDuration = `${Math.random() * 2 + 2}s`;
+                        
+                        emojiRainContainer.appendChild(emoji);
+                        
+                        setTimeout(() => {
+                            emoji.remove();
+                        }, 3000);
+                    }, i * 100);
+                }
+                
+                setTimeout(() => {
+                    emojiRainContainer.style.display = 'none';
+                }, 5000);
+            }
+            
+            document.getElementById('magic-button').addEventListener('click', startEmojiRain);
+        }
+        
+        // Создаем интерактивное пианино
+        function createPiano() {
+            const pianoKeys = document.querySelectorAll('#piano .key-white, #piano .key-black');
+            const notes = {
+                'C': 261.63,
+                'C#': 277.18,
+                'D': 293.66,
+                'D#': 311.13,
+                'E': 329.63,
+                'F': 349.23,
+                'F#': 369.99,
+                'G': 392.00,
+                'G#': 415.30,
+                'A': 440.00,
+                'A#': 466.16,
+                'B': 493.88
+            };
+            
+            let audioContext;
+            
+            function playNote(frequency) {
+                if (!audioContext) {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.type = 'sine';
+                oscillator.frequency.value = frequency;
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.start();
+                oscillator.stop(audioContext.currentTime + 1);
+            }
+            
+            pianoKeys.forEach(key => {
+                key.addEventListener('mousedown', () => {
+                    const note = key.getAttribute('data-note');
+                    if (notes[note]) {
+                        playNote(notes[note]);
+                    }
+                });
+            });
+        }
+        
+        // Создаем анимацию для солнечного картинга
+        function animateSolarCart() {
+            const cart = document.getElementById('solar-cart');
+            
+            cart.addEventListener('click', () => {
+                const cartBody = cart.querySelector('.cart-body');
+                const wheels = cart.querySelectorAll('.wheel');
+                
+                cartBody.style.transform = 'translateX(50px)';
+                wheels.forEach(wheel => {
+                    wheel.style.transform = 'rotate(360deg)';
+                });
+                
+                setTimeout(() => {
+                    cartBody.style.transform = '';
+                    wheels.forEach(wheel => {
+                        wheel.style.transform = '';
+                    });
+                }, 1000);
+            });
+        }
+        
+        // Создаем анимацию для паркура
+        function animateParkour() {
+            const parkourFigure = document.getElementById('parkour');
+            
+            parkourFigure.addEventListener('click', () => {
+                const figure = parkourFigure.querySelector('.figure');
+                const head = parkourFigure.querySelector('.head');
+                const arms = parkourFigure.querySelectorAll('.arm');
+                const legs = parkourFigure.querySelectorAll('.leg');
+                
+                figure.style.transform = 'rotate(-10deg) translateY(-30px) translateX(30px)';
+                head.style.transform = 'translateY(-30px) translateX(30px)';
+                arms[0].style.transform = 'rotate(20deg) translateY(-30px) translateX(30px)';
+                arms[1].style.transform = 'rotate(-70deg) translateY(-30px) translateX(30px)';
+                legs[0].style.transform = 'rotate(80deg) translateY(-30px) translateX(30px)';
+                legs[1].style.transform = 'rotate(-50deg) translateY(-30px) translateX(30px)';
+                
+                setTimeout(() => {
+                    figure.style.transform = '';
+                    head.style.transform = '';
+                    arms[0].style.transform = 'rotate(45deg)';
+                    arms[1].style.transform = 'rotate(-45deg)';
+                    legs[0].style.transform = 'rotate(60deg)';
+                    legs[1].style.transform = 'rotate(-30deg)';
+                }, 1000);
+            });
+        }
+        
+        // Создаем модальное окно для контактов
+        function createContactModal() {
+            const contactButton = document.getElementById('contact-button');
+            
+            contactButton.addEventListener('click', () => {
+                // Создаем модальное окно
+                const modal = document.createElement('div');
+                modal.classList.add('fixed', 'inset-0', 'flex', 'items-center', 'justify-center', 'z-50', 'p-4');
+                modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+                modal.style.backdropFilter = 'blur(5px)';
+                
+                const modalContent = document.createElement('div');
+                modalContent.classList.add('bg-white', 'rounded-3xl', 'p-8', 'max-w-md', 'w-full', 'relative');
+                modalContent.style.boxShadow = '0 25px 50px -12px rgba(236, 72, 153, 0.25)';
+                modalContent.style.transform = 'scale(0.9)';
+                modalContent.style.opacity = '0';
+                modalContent.style.transition = 'all 0.3s ease';
+                
+                const closeButton = document.createElement('button');
+                closeButton.classList.add('absolute', 'top-4', 'right-4', 'text-gray-400', 'hover:text-gray-600');
+                closeButton.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                `;
+                
+                const title = document.createElement('h3');
+                title.classList.add('text-2xl', 'font-bold', 'mb-6', 'text-pink-600', 'text-center');
+                title.textContent = 'Напиши мне!';
+                
+                const form = document.createElement('form');
+                form.classList.add('space-y-4');
+                form.innerHTML = `
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Имя</label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Сообщение</label>
+                        <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"></textarea>
+                    </div>
+                    <div class="pt-2">
+                        <button type="button" class="w-full btn-fancy">Отправить</button>
+                    </div>
+                `;
+                
+                modalContent.appendChild(closeButton);
+                modalContent.appendChild(title);
+                modalContent.appendChild(form);
+                modal.appendChild(modalContent);
+                document.body.appendChild(modal);
+                
+                // Анимация появления
+                setTimeout(() => {
+                    modalContent.style.transform = 'scale(1)';
+                    modalContent.style.opacity = '1';
+                }, 10);
+                
+                // Закрытие модального окна
+                closeButton.addEventListener('click', () => {
+                    modalContent.style.transform = 'scale(0.9)';
+                    modalContent.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(modal);
+                    }, 300);
+                });
+                
+                // Закрытие по клику вне модального окна
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modalContent.style.transform = 'scale(0.9)';
+                        modalContent.style.opacity = '0';
+                        
+                        setTimeout(() => {
+                            document.body.removeChild(modal);
+                        }, 300);
+                    }
+                });
+                
+                // Обработка отправки формы
+                const submitButton = form.querySelector('button');
+                submitButton.addEventListener('click', () => {
+                    modalContent.innerHTML = `
+                        <div class="text-center py-8">
+                            <div class="text-5xl mb-4">✨</div>
+                            <h3 class="text-2xl font-bold mb-4 text-pink-600">Спасибо!</h3>
+                            <p class="text-gray-600">Твое сообщение отправлено. Я отвечу как можно скорее!</p>
+                            <button class="mt-6 btn-fancy">Закрыть</button>
+                        </div>
+                    `;
+                    
+                    const closeModalButton = modalContent.querySelector('button');
+                    closeModalButton.addEventListener('click', () => {
+                        modalContent.style.transform = 'scale(0.9)';
+                        modalContent.style.opacity = '0';
+                        
+                        setTimeout(() => {
+                            document.body.removeChild(modal);
+                        }, 300);
+                    });
+                });
+            });
+        }
+        
+        // Анимация для карточек при прокрутке
+        function animateOnScroll() {
+            const cards = document.querySelectorAll('.card');
+            
+            function checkScroll() {
+                cards.forEach(card => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (cardTop < windowHeight * 0.85) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(50px)';
+                    }
+                });
+            }
+            
+            // Инициализация
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Проверка при прокрутке
+            window.addEventListener('scroll', checkScroll);
+            
+            // Первичная проверка
+            checkScroll();
+        }
+        
+        // Инициализация всех функций
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            createCursorTrail();
+            createEmojiRain();
+            createPiano();
+            animateSolarCart();
+            animateParkour();
+            createContactModal();
+            animateOnScroll();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'967f82dbc3aa3768',t:'MTc1Mzk5MDIzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
